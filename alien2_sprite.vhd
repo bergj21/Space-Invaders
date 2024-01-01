@@ -1,0 +1,113 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity alien2_sprite is
+  port(
+    clk : in std_logic;
+    xaddr : in unsigned(3 downto 0);
+    yaddr : in unsigned(3 downto 0);
+	rgb : out std_logic_vector(5 downto 0)
+  );
+end alien2_sprite;
+
+architecture synth of alien2_sprite is
+    signal addr : std_logic_vector(7 downto 0);         
+    begin
+        process(clk) is begin
+            if rising_edge(clk) then
+                case addr is
+                    when "00000000" => rgb <= "000000";
+					when "00000001" => rgb <= "000000";
+					when "00000010" => rgb <= "000000";
+					when "00000011" => rgb <= "000000";
+					when "00000100" => rgb <= "000000";
+					when "00000101" => rgb <= "000000";
+					when "00000110" => rgb <= "000000";
+					when "00000111" => rgb <= "000000";
+					when "00001000" => rgb <= "000000";
+					when "00001001" => rgb <= "000000";
+					when "00001010" => rgb <= "000000";
+					when "00010000" => rgb <= "000000";
+					when "00010001" => rgb <= "000000";
+					when "00010010" => rgb <= "000000";
+					when "00010011" => rgb <= "000000";
+					when "00010100" => rgb <= "000000";
+					when "00010101" => rgb <= "100011";
+					when "00010110" => rgb <= "100011";
+					when "00010111" => rgb <= "000000";
+					when "00011000" => rgb <= "000000";
+					when "00011001" => rgb <= "000000";
+					when "00011010" => rgb <= "000000";
+					when "00100000" => rgb <= "000000";
+					when "00100001" => rgb <= "000000";
+					when "00100010" => rgb <= "000000";
+					when "00100011" => rgb <= "000000";
+					when "00100100" => rgb <= "100011";
+					when "00100101" => rgb <= "100011";
+					when "00100110" => rgb <= "100011";
+					when "00100111" => rgb <= "100011";
+					when "00101000" => rgb <= "000000";
+					when "00101001" => rgb <= "000000";
+					when "00101010" => rgb <= "000000";
+					when "00110000" => rgb <= "000000";
+					when "00110001" => rgb <= "000000";
+					when "00110010" => rgb <= "000000";
+					when "00110011" => rgb <= "100011";
+					when "00110100" => rgb <= "100011";
+					when "00110101" => rgb <= "100011";
+					when "00110110" => rgb <= "100011";
+					when "00110111" => rgb <= "100011";
+					when "00111000" => rgb <= "100011";
+					when "00111001" => rgb <= "000000";
+					when "00111010" => rgb <= "000000";
+					when "01000000" => rgb <= "000000";
+					when "01000001" => rgb <= "000000";
+					when "01000010" => rgb <= "100011";
+					when "01000011" => rgb <= "100011";
+					when "01000100" => rgb <= "000000";
+					when "01000101" => rgb <= "100011";
+					when "01000110" => rgb <= "100011";
+					when "01000111" => rgb <= "000000";
+					when "01001000" => rgb <= "100011";
+					when "01001001" => rgb <= "100011";
+					when "01001010" => rgb <= "000000";
+					when "01010000" => rgb <= "000000";
+					when "01010001" => rgb <= "000000";
+					when "01010010" => rgb <= "100011";
+					when "01010011" => rgb <= "100011";
+					when "01010100" => rgb <= "100011";
+					when "01010101" => rgb <= "100011";
+					when "01010110" => rgb <= "100011";
+					when "01010111" => rgb <= "100011";
+					when "01011000" => rgb <= "100011";
+					when "01011001" => rgb <= "100011";
+					when "01011010" => rgb <= "000000";
+					when "01100000" => rgb <= "000000";
+					when "01100001" => rgb <= "000000";
+					when "01100010" => rgb <= "000000";
+					when "01100011" => rgb <= "100011";
+					when "01100100" => rgb <= "000000";
+					when "01100101" => rgb <= "100011";
+					when "01100110" => rgb <= "100011";
+					when "01100111" => rgb <= "000000";
+					when "01101000" => rgb <= "100011";
+					when "01101001" => rgb <= "000000";
+					when "01101010" => rgb <= "000000";
+					when "01110000" => rgb <= "000000";
+					when "01110001" => rgb <= "000000";
+					when "01110010" => rgb <= "100011";
+					when "01110011" => rgb <= "000000";
+					when "01110100" => rgb <= "100011";
+					when "01110101" => rgb <= "000000";
+					when "01110110" => rgb <= "000000";
+					when "01110111" => rgb <= "100011";
+					when "01111000" => rgb <= "000000";
+					when "01111001" => rgb <= "100011";
+					when "01111010" => rgb <= "000000";
+					when others => rgb <= "000000";
+                end case;
+            end if;
+        end process;   
+        addr <=  std_logic_vector(yaddr) & std_logic_vector(xaddr);   
+    end;
